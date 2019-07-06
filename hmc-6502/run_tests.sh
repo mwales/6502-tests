@@ -4,12 +4,23 @@
 # while implementing new features (or refactoring old ones)
 
 
-HMCDIR=../../utils/hmc-6502-import
 
-cd ../../src/DebugClient/
 
-echo "Cleaning testOutput directory"
-rm ${HMCDIR}/testOutput/*.txt
+if [ -d testOutput ];
+then
+	NUM_FILES=i$(ls -A testOutput | wc -l)
+	if [[ "$NUM_FILES" -ne "0" ]];
+	then
+		echo "Removing files in testOutput directory"
+		rm testOutput/*
+	else
+		echo "testOutput directory exists, and it is empty"
+	fi
+
+else
+	echo "Creating testOutput directory"
+	mkdir testOutput
+fi
 
 # First argument is the root name of the test rom
 # Second argument is the trace options required for the test
@@ -20,13 +31,14 @@ execute_test_case () {
 
 	echo "********** Starting ${TESTCASE} ******"
 	
-	./traceUtility.py ${HMCDIR}/testbin/${TESTCASE}.rom.bin ${TESTARGS}
+	echo "./traceUtility.py testbin/${TESTCASE}.rom.bin --config config.json ${TESTARGS}"	
+	./traceUtility.py testbin/${TESTCASE}.rom.bin ${TESTARGS}
 
-	mv emulator_stdout.txt emulator_stderr.txt ${HMCDIR}/testOutput
-	mv trace_output.txt ${HMCDIR}/testOutput/${TESTCASE}-trace.txt
+	mv emulator_stdout.txt emulator_stderr.txt testOutput
+	mv trace_output.txt testOutput/${TESTCASE}-trace.txt
 
 	# Verify the results
-	cmp ${HMCDIR}/testOutput/${TESTCASE}-trace.txt ${HMCDIR}/expectedResults/${TESTCASE}-trace.txt
+	cmp testOutput/${TESTCASE}-trace.txt expectedResults/${TESTCASE}-trace.txt
 
 	if [ $? -eq 0 ];
 	then
