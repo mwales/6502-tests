@@ -1,15 +1,15 @@
-TRACE> f000	a9 27        LDA #$27                   X=00   Y=00    A=27    SP=ff  PC=f002    Num Clocks = 0000000000000002    SR=00 = 
-TRACE> f002	69 01        ADC #$01                   X=00   Y=00    A=28    SP=ff  PC=f004    Num Clocks = 0000000000000004    SR=00 = 
-TRACE> f004	38           SEC                        X=00   Y=00    A=28    SP=ff  PC=f005    Num Clocks = 0000000000000006    SR=01 = FLG_CARY
-TRACE> f005	08           PHP                        X=00   Y=00    A=28    SP=fe  PC=f006    Num Clocks = 0000000000000009    SR=01 = FLG_CARY
-TRACE> f006	18           CLC                        X=00   Y=00    A=28    SP=fe  PC=f007    Num Clocks = 000000000000000b    SR=00 = 
-TRACE> f007	28           PLP                        X=00   Y=00    A=28    SP=ff  PC=f008    Num Clocks = 000000000000000f    SR=01 = FLG_CARY
-TRACE> f008	69 00        ADC #$00                   X=00   Y=00    A=29    SP=ff  PC=f00a    Num Clocks = 0000000000000011    SR=00 = 
-TRACE> f00a	48           PHA                        X=00   Y=00    A=29    SP=fe  PC=f00b    Num Clocks = 0000000000000014    SR=00 = 
-TRACE> f00b	a9 00        LDA #$00                   X=00   Y=00    A=00    SP=fe  PC=f00d    Num Clocks = 0000000000000016    SR=02 = FLG_ZERO
-TRACE> f00d	68           PLA                        X=00   Y=00    A=29    SP=ff  PC=f00e    Num Clocks = 000000000000001a    SR=00 = 
-TRACE> f00e	85 30        STA $30                    X=00   Y=00    A=29    SP=ff  PC=f010    Num Clocks = 000000000000001d    SR=00 = 
-TRACE> f010                                         X=00   Y=00    A=29    SP=ff  PC=f010    Num Clocks = 000000000000001d    SR=00 = 
+TRACE> f000	a9 27        LDA #$27                   X=00   Y=00    A=27    SP=fd  PC=f002    Num Clocks = 0000000000000002    SR=24 = FLG_INTD
+TRACE> f002	69 01        ADC #$01                   X=00   Y=00    A=28    SP=fd  PC=f004    Num Clocks = 0000000000000004    SR=24 = FLG_INTD
+TRACE> f004	38           SEC                        X=00   Y=00    A=28    SP=fd  PC=f005    Num Clocks = 0000000000000006    SR=25 = FLG_CARY | FLG_INTD
+TRACE> f005	08           PHP                        X=00   Y=00    A=28    SP=fc  PC=f006    Num Clocks = 0000000000000009    SR=25 = FLG_CARY | FLG_INTD
+TRACE> f006	18           CLC                        X=00   Y=00    A=28    SP=fc  PC=f007    Num Clocks = 000000000000000b    SR=24 = FLG_INTD
+TRACE> f007	28           PLP                        X=00   Y=00    A=28    SP=fd  PC=f008    Num Clocks = 000000000000000f    SR=25 = FLG_CARY | FLG_INTD
+TRACE> f008	69 00        ADC #$00                   X=00   Y=00    A=29    SP=fd  PC=f00a    Num Clocks = 0000000000000011    SR=24 = FLG_INTD
+TRACE> f00a	48           PHA                        X=00   Y=00    A=29    SP=fc  PC=f00b    Num Clocks = 0000000000000014    SR=24 = FLG_INTD
+TRACE> f00b	a9 00        LDA #$00                   X=00   Y=00    A=00    SP=fc  PC=f00d    Num Clocks = 0000000000000016    SR=26 = FLG_ZERO | FLG_INTD
+TRACE> f00d	68           PLA                        X=00   Y=00    A=29    SP=fd  PC=f00e    Num Clocks = 000000000000001a    SR=24 = FLG_INTD
+TRACE> f00e	85 30        STA $30                    X=00   Y=00    A=29    SP=fd  PC=f010    Num Clocks = 000000000000001d    SR=24 = FLG_INTD
+TRACE> f010                                         X=00   Y=00    A=29    SP=fd  PC=f010    Num Clocks = 000000000000001d    SR=24 = FLG_INTD
 
 0000    00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00     |................|
 0010    00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00     |................|
